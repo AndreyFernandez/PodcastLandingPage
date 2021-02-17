@@ -6,10 +6,8 @@ $secondary-color: #0000EC;
 $font-primary-color: #060A24;
 $color-light-blue: #00F3BB;
 $color-soft-gray: rgba(6,10,36,0.56);
-// $ibm-mono-font: 'IBM Plex Mono', monospace;
-// $ibm-sans-font: IBM Plex Sans;
 
-// INICIO RESETS
+// START RESETS
 * {
     margin: 0;
     padding: 0; 
@@ -26,15 +24,17 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
-// FIN RESETS
 
-// INICIO HEADER
-    // MOBILE FIRST
+html{
+    scroll-behavior: smooth;
+}
+// END RESETS
+
+// START HEADER
+    // HEADER MOBILE FIRST
 
 .header {
-    display: block;
     width: 100%;
-    position: fixed;
     top: 0;
     font-family: IBMPlexMono, monospace;
     font-size: 16px;
@@ -42,13 +42,13 @@ a {
     letter-spacing: 0;
     line-height: 28px;
     background-color: $primary-color;
+    padding: 10px 16px;
     z-index: 9999;
 }
 
 .nav-bar {
     display: flex;
     justify-content: space-between;
-    padding: 10px 19px 10px 16px;
 }
 
 .logo {
@@ -59,17 +59,12 @@ a {
 .img-logo {
     width: 100%;
     height: 100%;
-    // width: auto;
-    // height: auto;
-    // width: 24px;
-    // height: 24px;
 }
 
 .burguer-menu {
-    margin-top: 3px;
+    margin-top: 6px;
     width: 18px;
     height: 12px;
-
 }
 
 .linea-menu {
@@ -77,18 +72,19 @@ a {
     width: 100%;
     height: 2px;
     display: block;
-    margin-top: 3px;
+    margin-bottom: 3px;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 #checkbox-menu {
-    // display: none;
-    margin-top: 3px;
+    margin-top: 6px;
     position: absolute;
-    right: 19px;
+    right: 16px;
     width: 18px;
     height: 12px;
     opacity: 0;
-    // visibility: hidden;
     z-index: 9999;
 }
 
@@ -97,14 +93,11 @@ a {
     padding-top: 16px;
     background-color: $secondary-color;
     li {
-        // border: solid 1px black;
-        margin-left: 16px;
-        height: 28px;
-        // margin: 12px 16px;
         margin-bottom: 24px;
-        width: fit-content;
+        margin-left: 16px;
+        margin-right: 16px;
+        height: 28px;
         a {
-            // display: block;
             text-transform: uppercase;
             font-size: 16px;
             color: $primary-color;
@@ -115,7 +108,7 @@ a {
     }
 }
 
-    // MEDIA QUERIES MENÚ DESPLEGADO MOBILE FIRST
+// MEDIA QUERIES NAV EXPANDED MOBILE FIRST
 
 #checkbox-menu:checked {
     ~.burguer-menu{
@@ -135,22 +128,22 @@ a {
     ~.menu-list {
         display: block;
         position: absolute;
-        left: 0px;
+        left: 0;
         top: 44px;
         width: 100%;
+
     }
 }
 
-    // HEADER MEDIA QUERIES DESKTOP
+// HEADER MEDIA QUERIES DESKTOP
 
 @media screen and (min-width:768px){
-    header{
+    .header{
         background-color: $primary-color;
         height: 80px;
-        top: 0;
-        position: fixed;
+        width: 100%;
+        padding: 22px 100px;
         .nav-bar{
-            padding: 22px 100px;
             .logo{
                 width: 36px;
                 height: 36px;
@@ -190,21 +183,14 @@ a {
     }
 }
 
-// FIN HEADER
+// END HEADER
 
-// INICIO MAIN SECTION MOBILE FIRST
-body{
-    width: 100%;
-    display: block;
-}
-
+// START MAIN SECTION 
+// MAIN SECTION MOBILE FIRST
 .main-section{
     width: 100%;
-    margin-top: 73px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 24px;
-    background-color: red;
+    padding: 29px 16px 24px;
+    background-color: $primary-color;
     .main-title{
         font-family: 'IBM Plex Sans', sans-serif;
         font-size: 36px;
@@ -220,39 +206,35 @@ body{
         letter-spacing: 0;
         line-height: 22px;
     }
-    .primary-btn{
-        margin-top: 36px;
-        background: #00F3BB;
-        text-transform: uppercase;
-        height: 48px;
-        width: 100%;
-        font-family: IBMPlexMono, monospace;
-        font-size: 16px;
-        color: $font-primary-color;
-        letter-spacing: 0;
-        text-align: center;
-        line-height: 22px;
-    }
+}
+.primary-btn{
+    margin-top: 36px;
+    background-color: #00F3BB;
+    text-transform: uppercase;
+    height: 48px;
+    font-weight: 500;
+    width: 100%;
+    font-family: IBMPlexMono, monospace;
+    font-size: 16px;
+    color: $font-primary-color;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
 }
 
 // MAIN-SECTION MEDIA QUERIES DESKTOP
 
 @media screen and (min-width:768px){
     .main-section{
-        background-color: red;
-        padding-left: 200px;
-        margin-top: 80px;
-        padding-top: 0px;
-        padding-bottom: 5px;
+        background-color: $primary-color;
+        padding: 120px 200px 5px;
         width: 100%;
         
         .main-title{
-            // font-family: IBMPlexSans;
             font-size: 64px;
             line-height: 84px;
             color: $font-primary-color;
             letter-spacing: 0;
-            padding-top: 120px;
             span{
                 color: $secondary-color;
             }
@@ -261,36 +243,37 @@ body{
             }
         }
         .main-paragraph{
+            margin-top: 0px;
+            font-size: 16px;
             max-width: 628px;
             line-height: 24px;
         }
         .primary-btn{
+            margin-top: 56px;
             width: 226px;
-            display: inline-block;
+            display: block;
             height: 56px;
             font-size: 18px;
             letter-spacing: 0;
-            // text-align: center;
-            // vertical-align: middle;
             line-height: 24px;
         }
     }        
 }
 
-// FIN MAIN SECTION 
+// END MAIN SECTION 
 
-// INICIO EPISODES SECTION MOBILE FIRST
-
+// START EPISODES SECTION 
+// EPISODES SECTION MOBILE FIRST
 .episodes-section{
-    background-color: $primary-color;
     clip-path: polygon(0 3%, 100% 0, 100% 97%, 0% 100%);
-    // position: relative;
+    
     .episodes-background{
+        width: 100%;
+        padding-bottom: 143.5px;
         background-color: $secondary-color;
         padding-top: 64px;
-        // position: relative;
         .episodes-title{
-            padding-left: 16px;
+            margin-left: 16px;
             color: $primary-color;
             font-family: 'IBM Plex Sans', sans-serif;
             font-size: 36px;
@@ -298,17 +281,361 @@ body{
             line-height: 42px;
             margin-bottom: 10px;
         }
-        .episodes-spotify{
-            margin-top: 11px;
-            margin-left: 11px;
-            margin-right: 11px;
-            padding-bottom: 0;
-            // width: fit-content;
-            // height: auto;
-            // iframe{
-            //     width: 100%;
-            //     height: 100%; 
-            // }
+        .episodes-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-flow: row wrap;
+            .container-spotify{
+                margin: 11px 11px 0px;
+            }
+        }
+    }
+}
+
+// EPISODES SECTION MEDIA QUERIES DESKTOP 
+@media screen and (min-width:768px){
+    .episodes-section{   
+        clip-path: polygon(0 7%, 100% 0, 100% 93%, 0% 100%);
+        .episodes-background{
+            padding-bottom: 232.6px;
+            padding-top: 186px;
+            .episodes-title{
+                margin: 0 200px;
+                font-size: 48px;
+                line-height: 62px;
+            }
+            .episodes-container{
+                .container-spotify{
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
+
+// END EPISODES SECTION
+
+// START ORIGINS SECTION 
+// ORIGINS SECTION MOBILE FIRST
+.origins-section{
+    .phone-container{
+        margin-top: -95.5px;
+        margin-bottom: 27px;
+        width: 100%;
+        // max-width: 360px;
+        position: relative;
+        z-index: 9999;
+        .phone-img{
+            width: 100%;
+        }
+    }
+    .paragraphs-container{
+        padding: 0px 16px;
+        .origins-title{
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 36px;
+            color: #060A24;
+            letter-spacing: 0;
+            line-height: 42px;
+        }
+        .origins-paragraph{
+            padding-top: 8px;
+            font-family: IBMPlexMono, monospace;
+            font-size: 14px;
+            color: #060A24;
+            letter-spacing: 0;
+            line-height: 22px;
+        }
+        
+    }
+}
+
+// ORIGINS SECTION MEDIA QUERIES DESKTOP 
+
+@media screen and (min-width:768px){
+.origins-section{
+    margin-top: -168.6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    .phone-container{
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        z-index: 9999;
+        .phone-img{
+            width: 100%;
+        }
+    }
+    .paragraphs-container{
+        width: 50%;
+        padding: 0;
+        .origins-title{
+            font-size: 48px;
+            line-height: 62px;
+        }
+        .origins-paragraph{
+            padding-top: 24px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        
+    }
+}
+}
+
+//END ORIGINS SECTION
+
+//START GUEST SECTION
+//GUEST SECTION MOBILE FIRST
+.guest-section{
+    background-color: $primary-color;
+    padding-top: 54px;
+    .guest-title{
+        padding: 0 16px;
+        margin-bottom: 14px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 36px;
+        color: #060A24;
+        letter-spacing: 0;
+        line-height: 42px;
+    }
+    .guests-container{
+        display: flex;
+        flex-flow: row wrap;
+        .guest-img-container{
+            width: 100%;
+            .guest-img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+// GUEST SECTION MEDIA QUERIES DESKTOP 
+@media screen and (min-width:768px) and (max-width:1024px){
+    .guest-section{
+        background-color: $primary-color;
+        padding-top: 64px;
+        .guest-title{
+            margin: 0 200px;
+            padding: 0;
+            font-size: 48px;
+            line-height: 62px;
+            margin-bottom: 36px;
+        }
+        .guests-container{
+            .guest-img-container{
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px){
+    .guest-section{
+        padding-top: 64px;
+        .guest-title{
+            margin: 0 200px;
+            font-size: 48px;
+            line-height: 62px;
+            margin-bottom: 36px;
+            padding: 0;
+        }
+        .guests-container{
+            .guest-img-container{
+                width: 33.33333%;
+            }
+        }
+    }
+}
+
+//END GUEST SECTION
+
+//START TOPICS SECTION
+//TOPICS SECTION MOBILE FIRST
+
+.topics-section{
+    background-color: $primary-color;
+    padding-top: 48px;
+    .topics-title{
+        padding: 0 16px;
+        margin-bottom: 12px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 36px;
+        color: #060A24;
+        letter-spacing: 0;
+        line-height: 42px;
+    }
+    .topics-container{
+        display: flex;
+        flex-flow: row wrap;
+        .topics-img-container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 36px 16px 13px;
+            .topics-img{
+                width: 104px;
+                height: 104px;
+            }
+            .topics-span{
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-weight: 600;
+                font-size: 24px;
+                color: #060A24;     
+                letter-spacing: 0;
+                line-height: 32px;
+                text-align: center;
+                padding-top: 13px;
+            }
+        }
+    }
+}
+
+// TOPICS SECTION MEDIA QUERIES DESKTOP 
+@media screen and (min-width:768px) and (max-width:1024px){
+    .topics-section{
+        background-color: $primary-color;
+        padding-top: 64px;
+        .topics-title{
+            margin: 0 200px;
+            padding: 0;
+            font-size: 48px;
+            line-height: 62px;
+            margin-bottom: 36px;
+        }
+        .topics-container{
+            .topics-img-container{
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px){
+    .topics-section{
+        padding-top: 64px;
+        .topics-title{
+            margin: 0 200px;
+            padding: 0;
+            font-size: 48px;
+            line-height: 62px;
+            margin-bottom: 56px;
+        }
+        .topics-container{
+            padding: 0 200px;
+            .topics-img-container{
+                width: 25%;
+                padding: 13px 78px;
+                .topics-span{
+                    padding: 29px 20px;
+                    margin: 0 -78px;
+                }
+            }    
+        }
+    }
+}
+
+// END TOPICS SECTION
+
+// START NOVELTIES SECTION
+.novelties-section{
+    background-color: $secondary-color;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    padding: 64px 16px 67px;
+    margin-top: 29px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .novelties-title{
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 36px;
+        color: $primary-color;
+        letter-spacing: 0;
+        line-height: 42px;
+        text-align: center;
+    }
+}
+.primary-btn:hover{
+    background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);;
+    color: $primary-color;
+    cursor: pointer;
+}
+
+//NOVELTIES SECTION MEDIA QUERIES DESKTOP 
+@media screen and (min-width:768px){
+    .novelties-section{
+        background-color: $secondary-color;
+        clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+        padding: 64px 16px 151px;
+        padding-top: 213px;
+        .novelties-title{
+            font-size: 48px;
+            line-height: 62px;
+        }
+        .primary-btn{
+            width: 345px;
+        }
+    }
+}
+
+// END NOVELTIES SECTION
+
+// START FOOTER
+// MOBILE FIRST FOOTER 
+.footer{
+    background-color: $primary-color;
+    padding: 24px 45px 31px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .footer-title{
+        font-family: IBMPlexMono, monospace;
+        font-size: 14px;
+        color: #060A24;
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-bottom: 16px;
+    }
+    .links-container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .fab{
+            font-size: 16px;
+            color: #060A24;
+            letter-spacing: 0;
+            line-height: 28px;
+        }
+    }
+}
+
+//FOOTER MEDIA QUERIES DESKTOP
+@media screen and (min-width:768px){
+    .footer{
+        padding: 36px 100px 31px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .footer-title{
+            font-size: 16px;
+            line-height: 28px;
+            margin: 0;
+        }
+        .links-container{
+            display: flex;
+            justify-content: space-between;
+            width: auto;
+            .fab{
+                font-size: 18px;
+                line-height: 28px;
+                margin-left: 36px;
+            }
         }
     }
 }
